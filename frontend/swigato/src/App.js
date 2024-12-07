@@ -274,7 +274,7 @@ const App = () => {
 
   useEffect(() => {
     // const url = "http://localhost:8081/api/restaurants";
-    const url = "https://capstone-project-production-9159.up.railway.app/api/restaurants";
+    const url = "https://capstone-project-production-0d73.up.railway.app/api/restaurants";
     let isMounted = true;
 
     const fetchMilkData = async () => {
