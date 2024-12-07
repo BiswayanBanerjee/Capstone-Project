@@ -33,3 +33,4 @@ public class AuthappApplication {
     		return bean;
 
 }
+}
