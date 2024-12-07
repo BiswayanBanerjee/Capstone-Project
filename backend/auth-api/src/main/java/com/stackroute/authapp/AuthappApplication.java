@@ -17,7 +17,7 @@ public class AuthappApplication {
 		SpringApplication.run(AuthappApplication.class, args);
 	}
 
-	@Bean
+    @Bean
     public FilterRegistrationBean<CorsFilter> filterRegistrationBean() {
         final CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
