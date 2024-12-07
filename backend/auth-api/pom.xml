@@ -41,13 +41,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- PostgreSQL JDBC Dependency -->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.5.4</version>
-        </dependency>
-
         <!-- Spring Boot Security and Mail Dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
