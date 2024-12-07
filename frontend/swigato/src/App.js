@@ -273,7 +273,8 @@ const App = () => {
   const { theme, setThemePreference } = useAppTheme(); // Get theme and setter from the hook
 
   useEffect(() => {
-    const url = "http://localhost:8081/api/restaurants";
+    // const url = "http://localhost:8081/api/restaurants";
+    const url = "https://capstone-project-production-9159.up.railway.app/api/restaurants";
     let isMounted = true;
 
     const fetchMilkData = async () => {
