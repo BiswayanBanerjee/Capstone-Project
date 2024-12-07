@@ -27,17 +27,20 @@ public class RegisteredUserApplication {
 //			return frb;
 //		}
 		@Bean
-		public FilterRegistrationBean filterRegistrationBean () {
-			final CorsConfiguration config = new CorsConfiguration();
-			config.setAllowCredentials(true);
-			config.addAllowedOrigin("http://localhost:3000");
-			config.addAllowedHeader("*");
-			config.addAllowedMethod("*");
-			final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-			source.registerCorsConfiguration("/**", config);
-			FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
-			bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
-			return bean;
-		}
+		public FilterRegistrationBean<CorsFilter> filterRegistrationBean() {
+    			final CorsConfiguration config = new CorsConfiguration();
+    			config.setAllowCredentials(true);
+    			config.addAllowedOrigin("*");  // Allows all origins, which includes your Railway frontend
+    			config.addAllowedHeader("*");
+    			config.addAllowedMethod("*");
+
+    			final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    			source.registerCorsConfiguration("/**", config);
+
+    			FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
+    			bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+    			return bean;
+}
+
 
 }
