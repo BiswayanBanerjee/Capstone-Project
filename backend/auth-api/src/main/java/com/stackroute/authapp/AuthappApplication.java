@@ -17,17 +17,29 @@ public class AuthappApplication {
 		SpringApplication.run(AuthappApplication.class, args);
 	}
 
-	@Bean
-	public FilterRegistrationBean filterRegistrationBean() {
-		final CorsConfiguration config = new CorsConfiguration();
-		config.setAllowCredentials(true);
-		config.addAllowedOrigin("http://localhost:3000");
-		config.addAllowedHeader("*");
-		config.addAllowedMethod("*");
-		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", config);
-		FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
-		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
-		return bean;
-	}
+    @Bean
+    public FilterRegistrationBean<CorsFilter> filterRegistrationBean() {
+    CorsConfiguration config = new CorsConfiguration();
+    config.setAllowCredentials(true);
+    
+    // Load origins from environment or properties
+    String allowedOrigins = System.getenv("ALLOWED_ORIGINS");
+    if (allowedOrigins != null) {
+        Arrays.stream(allowedOrigins.split(","))
+              .forEach(config::addAllowedOrigin);
+    } else {
+        config.addAllowedOrigin("http://localhost:3000");
+    }
+
+    config.addAllowedHeader("*");
+    config.addAllowedMethod("*");
+    
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", config);
+    
+    FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
+    bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+    return bean;
+}
+
 }
