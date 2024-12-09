@@ -156,7 +156,7 @@ const MilkDetail = () => {
   
     try {
       // Step 1: Fetch the existing cart items
-      const response = await axios.get(`http://localhost:8082/api/customers/${userEmail}/cart`);
+      const response = await axios.get(`https://lucky-strength-production.up.railway.app/api/customers/${userEmail}/cart`);
       const existingCartItems = response.data || [];
   
       // Step 2: Create an array containing milk.id repeated based on the quantity
@@ -166,7 +166,7 @@ const MilkDetail = () => {
       const updatedCartItems = [...existingCartItems, ...newItems];
   
       // Step 4: Send the updated cart items back to the server with a PATCH request
-      await axios.patch(`http://localhost:8082/api/customers/${userEmail}/cart`, updatedCartItems);
+      await axios.patch(`https://lucky-strength-production.up.railway.app/api/customers/${userEmail}/cart`, updatedCartItems);
   
       console.log('Cart updated successfully');
       navigate('/');
