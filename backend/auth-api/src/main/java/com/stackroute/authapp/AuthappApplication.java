@@ -21,6 +21,7 @@ public class AuthappApplication {
         final CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);  // Allow credentials (cookies, tokens, etc.)
         config.addAllowedOrigin("https://capstone-project-git-main-biswayan-banerjees-projects.vercel.app");  // Explicitly add your frontend URL
+        config.addAllowedOrigin("https://capstone-project-five-brown.vercel.app");
         config.addAllowedHeader("*");  // Allow all headers
         config.addAllowedMethod("*");  // Allow all methods (GET, POST, etc.)
 
