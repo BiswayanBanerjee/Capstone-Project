@@ -398,7 +398,7 @@ const Signup = () => {
         role,
       };
 
-      const response = await axios.post('http://localhost:8080/auth-app/signup', payload);
+      const response = await axios.post('https://elegant-renewal-production.up.railway.app/auth-app/signup', payload);
       if (response.status === 200) {
         setUserData({ ...data });
         setEmail(data.email);
@@ -415,7 +415,7 @@ const Signup = () => {
     try {
       setIsResendDisabled(true);
       setCountdown(60);
-      await axios.post(`http://localhost:8080/auth-app/resend-otp?email=${encodeURIComponent(email)}`);
+      await axios.post(`https://elegant-renewal-production.up.railway.app/auth-app/resend-otp?email=${encodeURIComponent(email)}`);
     } catch (error) {
       setSignupError('Failed to resend OTP. Please try again.');
     }
@@ -423,7 +423,7 @@ const Signup = () => {
 
   const verifyOtp = async () => {
     try {
-      const response = await axios.post(`http://localhost:8080/auth-app/verify-otp?email=${encodeURIComponent(email)}&otp=${encodeURIComponent(otp)}`);
+      const response = await axios.post(`https://elegant-renewal-production.up.railway.app/auth-app/verify-otp?email=${encodeURIComponent(email)}&otp=${encodeURIComponent(otp)}`);
       if (response.status === 200 && userData) {
         const customerDataPayload = {
           firstName: userData.firstName,
@@ -431,7 +431,7 @@ const Signup = () => {
           email: userData.email,
           password: userData.password,
         };
-        const customerResponse = await axios.post('http://localhost:8082/api/customers', customerDataPayload);
+        const customerResponse = await axios.post('https://lucky-strength-production.up.railway.app/api/customers', customerDataPayload);
         if (customerResponse.status === 200) navigate('/login');
       }
     } catch (error) {
