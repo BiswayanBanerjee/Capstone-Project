@@ -561,7 +561,7 @@ const MilkManager = ({ products }) => {
 
       // Check for matching restaurant by email
       axios
-        .get('http://localhost:8081/api/restaurants')
+        .get('https://capstone-project-production-30c8.up.railway.app/api/restaurants')
         .then((response) => {
           const existingRestaurant = response.data.find(
             (restaurant) => restaurant.email === userEmail
@@ -592,7 +592,7 @@ const MilkManager = ({ products }) => {
 
   const handleAddRestaurant = async () => {
     try {
-      await axios.post('http://localhost:8081/api/restaurants', newRestaurant);
+      await axios.post('https://capstone-project-production-30c8.up.railway.app/api/restaurants', newRestaurant);
       alert('Restaurant added successfully!');
       handleCloseModal();
     } catch (error) {
