@@ -253,7 +253,7 @@ const RestaurantView = () => {
   const handleDeleteDish = async (dishId) => {
     try {
       const response = await fetch(
-        `http://localhost:8081/api/restaurants/${restaurant.id}/dishes/${dishId}`,
+        `https://capstone-project-production-30c8.up.railway.app/api/restaurants/${restaurant.id}/dishes/${dishId}`,
         {
           method: 'DELETE',
           headers: {
@@ -275,7 +275,7 @@ const RestaurantView = () => {
 
   const handleAddDish = async () => {
     try {
-      const response = await fetch(`http://localhost:8081/api/restaurants/${restaurant.id}/dishes`, {
+      const response = await fetch(`https://capstone-project-production-30c8.up.railway.app/api/restaurants/${restaurant.id}/dishes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
