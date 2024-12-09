@@ -1081,7 +1081,7 @@ const OrderForm = () => {
   useEffect(() => {
     const fetchCustomerData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8082/api/customers/${customerId}`);
+        const response = await axios.get(`https://lucky-strength-production.up.railway.app/api/customers/${customerId}`);
         const customerData = response.data;
 
         // Set form values if customer data is available
@@ -1105,7 +1105,7 @@ const OrderForm = () => {
       }
 
       try {
-        const cartResponse = await axios.get(`http://localhost:8082/api/customers/${customerId}/cart`);
+        const cartResponse = await axios.get(`https://lucky-strength-production.up.railway.app/api/customers/${customerId}/cart`);
         const cartData = cartResponse.data;
 
         const itemCounts = {};
@@ -1113,7 +1113,7 @@ const OrderForm = () => {
           itemCounts[itemId] = (itemCounts[itemId] || 0) + 1;
         });
 
-        const dishesResponse = await axios.get('http://localhost:8081/api/restaurants/dishes');
+        const dishesResponse = await axios.get('https://capstone-project-production-30c8.up.railway.app/api/restaurants/dishes');
         const allDishes = dishesResponse.data;
 
         const cartItemsWithDetails = Object.keys(itemCounts).map((id) => {
@@ -1147,7 +1147,7 @@ const OrderForm = () => {
 
   const updateCart = async (updatedCart) => {
     try {
-      await axios.patch(`http://localhost:8082/api/customers/${customerId}/cart`, updatedCart);
+      await axios.patch(`https://lucky-strength-production.up.railway.app/api/customers/${customerId}/cart`, updatedCart);
     } catch (error) {
       console.error("Failed to update cart", error);
     }
@@ -1198,7 +1198,7 @@ const OrderForm = () => {
   const onSubmit = async (data) => {
     try {
         // Fetch the current orders for the customer to determine the new orderId
-        const ordersResponse = await axios.get(`http://localhost:8082/api/customers/${customerId}/orders`);
+        const ordersResponse = await axios.get(`https://lucky-strength-production.up.railway.app/api/customers/${customerId}/orders`);
         const currentOrders = ordersResponse.data;
 
         // Determine the next orderId (starting from 1)
@@ -1221,7 +1221,7 @@ const OrderForm = () => {
         };
 
         // Send the new order as a single object (not wrapped in an array)
-        await axios.patch(`http://localhost:8082/api/customers/${customerId}/orders`, newCustomerOrder);
+        await axios.patch(`https://lucky-strength-production.up.railway.app/api/customers/${customerId}/orders`, newCustomerOrder);
         
         // Clear the cart and navigate to the success page
         localStorage.removeItem('cart');
