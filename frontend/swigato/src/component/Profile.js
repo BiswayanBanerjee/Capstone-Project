@@ -2446,7 +2446,7 @@ const Profile = () => {
 
   const fetchProfileData = async (token, id) => {
     try {
-      const response = await axios.get(`http://localhost:8082/api/customers/${id}`, {
+      const response = await axios.get(`https://lucky-strength-production.up.railway.app/api/customers/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUserProfile(response.data);
@@ -2539,7 +2539,7 @@ const Profile = () => {
         cleanedProfile.profileImageUrl = data.Key;
       }
 
-      await axios.put(`http://localhost:8082/api/customers/${id}`, cleanedProfile, {
+      await axios.put(`https://lucky-strength-production.up.railway.app/api/customers/${id}`, cleanedProfile, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
