@@ -540,7 +540,7 @@ const Header = ({ products, onSearchMilk, setThemePreference }) => {
       const userEmail = decodedToken.sub;
 
       try {
-        const response = await axios.get(`http://localhost:8082/api/customers/${userEmail}/cart`);
+        const response = await axios.get(`http://lucky-strength-production.up.railway.app/api/customers/${userEmail}/cart`);
         const dishIds = response.data;
         setCartCount(dishIds.length);
       } catch (error) {
