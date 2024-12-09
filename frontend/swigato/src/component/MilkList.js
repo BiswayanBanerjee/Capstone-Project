@@ -1019,7 +1019,7 @@ const MilkList = ({ restaurants = [] }) => {
 
   const handleDelete = async (restaurantId) => {
     try {
-      await axios.delete(`http://localhost:8081/api/restaurants/${restaurantId}`);
+      await axios.delete(`https://capstone-project-production-30c8.up.railway.app/api/restaurants/${restaurantId}`);
       setFilteredRestaurants((prev) =>
         prev.filter((restaurant) => restaurant.id !== restaurantId)
       );
