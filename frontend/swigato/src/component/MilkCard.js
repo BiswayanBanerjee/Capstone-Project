@@ -425,7 +425,7 @@ const MilkCard = ({ milk, isOwner, onDelete, restaurantId }) => {
     };
 
     try {
-      const response = await fetch(`http://localhost:8081/api/restaurants/${restaurantId}/dishes/${milk.id}`, {
+      const response = await fetch(`https://capstone-project-production-30c8.up.railway.app/api/restaurants/${restaurantId}/dishes/${milk.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
