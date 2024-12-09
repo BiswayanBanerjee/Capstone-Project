@@ -29,7 +29,7 @@ public class RegisteredUserApplication {
 		@Bean
 		public FilterRegistrationBean<CorsFilter> filterRegistrationBean() {
     			final CorsConfiguration config = new CorsConfiguration();
-    			config.setAllowCredentials(true);
+    			config.setAllowCredentials(false);
     			config.addAllowedOrigin("*");  // Allows all origins, which includes your Railway frontend
     			config.addAllowedHeader("*");
     			config.addAllowedMethod("*");
